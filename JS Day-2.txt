@@ -1,0 +1,147 @@
+Q.1  What are closures? Give an example of closure
+Ans: A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function"s scope from an inner function.
+         In JavaScript, closures are created every time a function is created, at function creation time.
+        Ex: function OuterFunction() {  //create a outer function
+           var outerVariable = 100;  //we put value 100 in outerVariable
+           function InnerFunction() {  //After then we  create inner function 
+                alert(outerVariable);
+            }
+            return InnerFunction;    //afte we return the InnerFunction
+        }
+        var innerFunc = OuterFunction(); //here we again assign in another variable called "innerFunc"
+        innerFunc();  //after call we get //100
+ 
+ Q.2 Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()?
+ Ans: Call --> The  call()  allows for a function/method belonging to one object to be assigned and called for a different object.
+    also can say  Call invokes the function and allows you to pass in arguments one by one..
+     Ex: Call:
+
+     var person1 = {firstName: "Pushpendra ", lastName: "Singh"};
+     var person2 = {firstName: "Pitambar", lastName: "Bhadra"};
+     function say(greeting) {    //we create a function name say
+     console.log(greeting + " " + this.firstName + " " + this.lastName);
+     }
+     say.call(person1, "Hello"); //here we call the function and add "hello"
+     say.call(person2, "Hello"); // here we call the function and add "hello"
+
+     Apply--> binds the this value, invokes the function, and allows you to pass arguments as an array.
+        Ex:  Apply
+        var person1 = {firstName: "Pushpendra", lastName: "Singh"};
+        var person2 = {firstName: "Pitambar", lastName: "bhadra"};
+        function say(greeting) {
+        console.log(greeting + " " + this.firstName + " " + this.lastName);
+        }
+        say.apply(person1, ["Hello"]); // here we call the function and add using array [hello]
+        say.apply(person2, ["Hello"]); //here we call the function and add using array [hello]
+
+    bind -->Bind returns a new function, allowing you to pass in a this array and any number of arguments.
+    Ex: Bind
+    var person1 = {firstName: "Pushpendra", lastName: "singh"};
+    var person2 = {firstName: "Pitambar", lastName: "bhadra"};
+    function say() {
+    console.log("Hey " + this.firstName + " " + this.lastName);
+    }
+    var sayHellopushpendra = say.bind(person1);
+    var sayHellopitambar = say.bind(person2);
+    sayHellopushpendra(); // Hello Pushpendra singh
+    sayHellopitambar(); // Hello Pitambar bhadra
+   
+  Q.3 What is creation phase and execution phase?
+   Ans:creation phase--> During the creation phase of the execution context, JS allocates memory space for the functions and variables.
+    In case of functions, the whole function body is stored but in case of the variables, it is declared and assigned a default value undefined.
+    Ex:
+    console.log(a)  // It will show Undefined
+    var a = 10
+    execution phase--> Execution context is the concept for describing the internal working of a code. 
+    In JavaScript, the environment that enables the JavaScript code to get executed is what we call JavaScript Execution Context
+    function foo() {
+        console.log("function foo is called!")
+      }
+      foo()   //calling the function
+      console.log(a); //undefined
+      var a = 10; assgined value
+      console.log(a)  //10
+   
+   Q.4 What are objects in javascript?
+    Ans: "Everything" in JavaScript acts like an object such as a String, a Number, an Array, a Function..., with two exceptions, null and undefined.
+        var student = {  // creating Objects
+            name : "David Rayy", 
+            sclass : "VI", 
+            rollno : 12 
+           } 
+           console.log(student) //there is output // name: 'David Rayy', sclass: 'VI', rollno: 12
+     
+   Q.5 What are function constructors?
+     Ans: A constructor function is a simple javascript function that is used to create objects using the “new” keyword. 
+        So instead of calling the function directly you have to invoke it with “new” keyword
+       Ex:
+    function Teacher(name,gender){
+    this.name = name;
+    this.gender = gender;
+    this.age = age;    
+    }
+    let Teacher1 = new Student("pitambar","male",26);
+    console.log(student1);
+    let Teacher2 = new Student("Atul","male",23)
+    console.log(student2)
+  
+  Q.6 Explain prototypes?
+    Ans: When a function is created in JavaScript, the JavaScript engine adds a prototype property to the function. 
+    This prototype property is an object (called a prototype object) that has a constructor property by default.
+     Ex:
+       function Student() {
+    this.name = 'John';
+    this.gender = 'Male';
+     }
+    var studObj1 = new Student();
+    studObj1.age = 15;
+    alert(studObj1.age); // 15
+    var studObj2 = new Student();
+    alert(studObj2.age); // undefined
+   
+   Q.7 What is prototype chain?
+   Ans: The prototype object has prototype of its own and so on until an object is reached with null as its prototype. 
+    So, this linking with one another is called as prototype chain.Null has no prototype and it acts as a final link in this prototype chain.
+   
+   Q.8 Give an example of inheritance using function constructor?
+   Ans: function Person () {      // function Constructor
+        this.name = 'John',
+        this.age = 23
+    }
+    const person1 = new Person();  // creating objects
+    const person2 = new Person();
+    Person.prototype.gender = 'male'; // adding property to constructor function
+     console.log(Person.prototype); // prototype value of Person
+        console.log(person1.gender); // inheriting the property from prototype
+    console.log(person2.gender);
+    
+    Q.9 What are callbacks?
+    Ans:A callback function is a function that is passed as an argument to another function, to be “called back” at a later time.
+        Ex: 
+        function doubleResult(num1, num2, calc) {
+            return calc(num1, num2) * 2;
+          }
+          function add(num1, num2) {
+            return num1 + num2; return in add
+          }
+          function multiply(num1, num2) {
+            return num1 * num2;   //return in multiply
+          }
+          console.log(doubleResult(4, 2, add));  // It will add
+          console.log(doubleResult(4, 2, multiply)); //It will multiply
+     
+     Q.10 What is the use of setTimeout?
+     Ans: The setTimeout function is a native JavaScript function. It sets a timer (a countdown set in milliseconds) for an execution of a callback function
+           Ex: function greet() {
+                alert('Welcome!');
+               }
+               setTimeout(greet, 2000); //execute greet after 2000 milliseconds
+       
+      Q.11 What is an event loop and call stack?
+      Ans: Event loop-->the event loop handles implementation by checking the call stack and executing the stack frames in LIFO order until the call stack is empty.
+             But as we previously mentioned, there’s also the Web API pushing things to the task queue. 
+            Call Stack-->The call stack is given priority and each frame in the stack is processed to completion before content from the queue is added to the stack.
+             We do not have to wait for the tasks from the queue to run when pushed to the stack though.
+    
+
+     
