@@ -20,7 +20,7 @@ Ans.It will take all characters .what you are write in the function and also wha
     
    Ex: const arrValue = ['My', 'name', 'is', 'Pushpendra'];
     console.log(arrValue);  
-    console.log(...arrValue); // My name is Pushpendra It will take both input All characters
+    console.log(...arrValue); // My name is Pushpendra It will take all input characters
     
 Q.3 What are the differences between var, let and const?
 Ans. JavaScript has three variable declaration statements: var, let and const.
