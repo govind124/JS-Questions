@@ -1,0 +1,44 @@
+Q.1 Difference between “ == “ and “ === “ operators.
+Ans.Ans. In Both Operator we are check the values and data types.
+and It is also Called Comparison operator.It will always returns "true" or "false".
+ Ex:  ==  (Only check Values).
+
+    let a = 10;
+    let b = '10';
+    console.log(a == b); //true   
+
+ ===  (check  both values and data types).
+
+     let a = 10;
+     let b = '10';
+     let c = 10;
+     console.log(a===b);  //output: false;
+     console.log(a===c);  //output: true;  
+
+Q.2What is the spread operator?
+Ans.It will take all characters .what you are write in the function and also what are initialize in array and object etc.
+    
+   Ex: const arrValue = ['My', 'name', 'is', 'Pushpendra'];
+    console.log(arrValue);  
+    console.log(...arrValue); // My name is Pushpendra It will take both input All characters
+    
+Q.3 What are the differences between var, let and const?
+Ans. JavaScript has three variable declaration statements: var, let and const.
+two latter were added in ES6, whereas var existed since previous versions.
+var declarations are globally scoped or function scoped while let and const are block scoped.
+One of the first things to notice is that const defines constants (i.e. values that will not be reassigned),
+whereas var and let define variables. Yet, var behaves differently from both let and const in various other ways.
+
+Q.4 What is execution context.
+Ans. Execution context allows the JavaScript engine to manage the complexity of interpreting and running our code.
+and Execution context is an abstract concept that holds information about the environment where the current code is being executed.
+  1.Global execution context--> This execution context is created by default by the JavaScript engine.
+  2.Function execution context-->  This execution context is created whenever a function is executed.
+  
+Q.5 What is meant by first class functions.
+Ans.A first class function is a function that was built with the intention of being passed around to other functions.
+It does one specific thing, does not have side effects, and is not intended to be called directly, but rather, to be used by other functions.
+  Ex:  function add (a,b){ //parameters (a,b)
+    console.log("abcd")
+   }
+   add(3,4); //arguments (values passed into functions are called arguments)
