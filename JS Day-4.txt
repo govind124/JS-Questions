@@ -1,0 +1,99 @@
+Q.1 What are promises and why do we need them?
+Ans: A promise is simply a placeholder for an asynchronous task which is yet to be completed. When you define a promise object in your script, instead of 
+     returning a value immediately, it returns a promise.
+     If the promise is successful, the fulfillment callback will be called. If the promise is rejected, the rejected call back will be called instead.
+     
+Ex:   const myPromise = new Promise((resolve, reject) => {  // we create a promise with there three states parameter
+      let a = false;  
+      setTimeout(() => {                                   // Here we used setTimeout function
+      return (a) ? resolve('a is found!'): reject('sorry, no a'); //here we are using condtional operator
+      }, 300);                                             //here we giving timing 
+      }); 
+Q.2 What is the purpose of async/await keywords?
+ Ans:  Async: It simply allows us to write promises based code as if it was synchronous and it checks that we are not breaking the execution thread. 
+          It operates asynchronously via the event-loop. Async functions will always return a value.
+       Await: The await keyword is used inside the async function to wait for the asynchronous operation.The use of await pauses the async function until 
+          the promise returns a result (resolve or reject) value.
+          
+Q.3 What is hoisting?
+ Ans:   Hoisting: Hoisting in JavaScript is a default behavior in which a function or a variable can be used before declaration. also can say
+             Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+    Ex:      var counter;//
+             console.log(counter); // undefined
+             counter = 1;
+ 
+Q.4 What is the DOM?
+ Ans: DOM or Document Object Model is an API (Application programming interface) that defines a logical layout of content & how it’s accessed and manipulated. 
+      Using DOM, programmers can build, construct, add, modify, delete, or navigate elements or contents. Everything present on an HTML webpage can be edited using DOM. 
+
+   Ex:  Giving Some Method which is used in DOM
+       • getElementById(): Accesses the first element with specified id
+       • getElementByName(): Accesses all the elements with the specified name
+       • getElementByTagName():Accesses all elements with the specified Tag name
+Q.5 Difference between undefined vs not defined vs NaN?
+Ans:   undefined: Whenever we declare a variable without assigning any value to it, javascript implicitly assigns its value as
+       undefined.
+   Ex:   let name;
+         console.log(name); //undefined
+       
+       not defined: If you use a variable that does not exist and has not been declared, javascript will throw an error. var name is not defined.
+   Ex:   console.log(a); //undefined
+         var a = 5;
+         console.log(a);
+         console.log(b); //not defined
+      
+      null: Null means an empty or non-existent value. Null is assigned, and explicitly means nothing.
+    Ex:  var test1 = null;
+         console.log(test1); // null
+         
+Q.6 How many operators do we have in JS ?
+Ans:    1:Arithment Operators   (+,-,*,/,%,++,--)
+        2:Comparison operators  (==,===,!=,!==,<,>,<=,>=)
+        3:Assignment operators  (=,+=,-=,*=,/=,%=)  
+        4:Logical operators     (&&,||,!)
+        5:Bitwise operators     (&,|,^,~,<<,>>,>>>)
+        6:Ternary (conditional) operator (<condition> ? <value1> : <value2>;)
+ 
+ Q.7 What are pure functions?
+ Ans:  Pure function are those functional which gives us the same o/p for the same input everytime.
+    Ex:  let val1=6;
+         let val2=4;
+         function pure(){
+         return val1*val2;
+         }
+         console..log(pure()); //24
+  
+ Q.8 What is callback hell?
+ Ans:  A callback hell is just a regular function, which is called after another function has finished executing.
+    Ex:  firstFunction(args, function() {
+         secondFunction(args, function() {
+         thirdFunction(args, function() {
+           // And so on…
+         });
+       });
+     });
+     
+  Q.9 What is promise chaining?
+ Ans: The promise chain is used to executes multiple asynchronous tasks in sequence.Promise object such as promise.
+      then(), promise.catch() and promise.finally() are used to connect further actions with a promise that becomes settled.
+  Q.10 What are arrow functions?
+  Ans: Arrow functions are anonymous functions (the functions without a name and not bound with an identifier). 
+       They don't return any value and can declare without the function keyword. Arrow functions cannot be used as the constructors. 
+   Ex:  const Jai = (arg1, arg2, ?..) => {  
+         //Code 
+         }
+  Q.11 Give an example of async/await?
+  Ans:  Async:: async function f() {   //we are creating a function using async
+        return Promise.resolve(1);  //return the promise which is resolve
+        }
+        f().then(alert); // 1 
+        Await:: async function f() {
+                let promise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve("done!"), 1000)
+                });
+                let result = await promise; // wait until the promise resolves (*) using await
+                alert(result); // "done!"
+                }
+                f(); //call the function
+     
+   
