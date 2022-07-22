@@ -1,0 +1,108 @@
+Q.1 What is a Temporal Dead Zone?
+Ans. Temporal Dead Zone is the period of time during which the let and const declarations cannot be accessed.
+     Temporal Dead Zone starts when the code execution enters the block which contains the let or const declaration and continues until the declaration has executed.
+     
+Ex:  {
+     let and Const (block)
+     }
+Q.2  What is the for-in loop in JavaScript? Give its syntax?
+Ans. for-in loop is a basic control statement that allows you to loop through the properties of an object. The statements of code found within the loop body will
+     be executed once for each property of the object.
+     
+Ex:  var totn_colors = { primary: 'green', secondary: 'yellow', tertiary: 'brown' }; //we are creating the objects
+
+     for (var color in totn_colors) { //we are creating the for in loop method
+     console.log(totn_colors[color]);  // It will print color =>green,yellow,brown 
+     }
+Q.3  Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript?
+Ans. Local Scope: Local Scope occurs when you create a variable inside a function. By doing that, the visibility and accessibility of
+                  the variable is only allowed within that function.
+            EX:   function calcAge(birthyear) {  // Declare variables inside the calcAge function scope
+                          const currentYear = 2021;
+                          const age = currentYear - birthyear;
+                          return age;
+                          }
+                          calcAge(1975);
+                         // Attempt to access "currentYear" and "age" outside of the function scope is not possible
+                         console.log(currentYear); // ReferenceError: currentYear is not defined
+                         console.log(age); // ReferenceError: age is not defined
+     Block Scope: A block scope is the area within if, switch conditions or for and while loops. Generally speaking, whenever you see {curly brackets}, 
+                  it is a block. In ES6, const and let keywords allow developers to declare variables in the block scope, which means those variables exist 
+                  only within the corresponding block.
+             Ex:   {
+                     let a = 3;
+                     var b = 2;
+                   }
+
+                    console.log(a); //Uncaught ReferenceError
+                    console.log(b); // 2 
+     Functional Scope: Whenever you declare a variable in a function, the variable is visible only within the function. You can't access it outside the function. 
+                  var is the keyword to define variable for a function-scope accessibility.
+               Ex: function fun()
+                  {
+                  	var temp ="temp is defined in function scope";
+	                  console.log(temp); //temp is defined in function scope
+                  }
+                    fun();
+                    console.log(temp); // refrence error :temp is not defined
+     Scope Chain: When looking for variables through the nested scope, the inner scope first looks at its own scope. If the variable is not assigned locally, 
+                  which is inside the inner function or block scope, then JavaScript will look at the outer scope of said function or block to find the variable. 
+                  If Javascript could not find the variable in any of the outer scopes on the chain, it will throw a reference error.
+Q.4 What is difference between null and undefined and where to use what?
+Ans: undefined means a variable has been declared but has not yet been assigned a value. undefined is a type by itself (undefined). 
+     Unassigned variables are initialized by JavaScript with a default value of undefined.
+Ex:  var n;
+
+    console.log(n); //Undefined
+    null : null is an object. It can be assigned to a variable as a representation of no value. JavaScript never sets a value to null. 
+Ex: var tNull = null;
+    alert(tNull + 100); //100
+Q.5 what is Symbol?
+Ans : symbol is a relatively new type primitive datatype in Javasript, introduce in ES6. In this Every Symbol value returned fdrom symbol() is uniques. Even When 
+      same description is used then symbol is created .then they return uniques values
+ Ex:  let sym1= Symbol(10);
+      let sym2= Symbol(10);
+      console.log(sym1==sym2)   //return false
+Q.6 Write code to explain map and filter in arrays?
+Ans: a Map object holds key-value pairs where values of any type can be used as either keys or values. In addition,
+     a Map object remembers the original insertion order of the keys.
+  Ex: let arr = [3, 4, 5, 6];
+      let modifiedArr = arr.map(function(element){ //there we are using function and using map method
+      return element *3; / using return we are multiply by 3 in arr
+      });
+      console.log(modifiedArr); // [9, 12, 15, 18]
+   Filter: In JavaScript, filter() is an Array method that is used to return a new array with only those elements that meet a specific criteria. 
+   Because the filter() method is a method of the Array object, it must be invoked through a particular instance of the Array class.
+  Ex: var totn_array = [ 1, -5, 10, -15, 0 ]; // We are creating the array
+        function greater_than_zero(totn_element) { 
+        return totn_element > 0; we return the total element > is greater than zero
+        }
+       console.log(totn_array.filter(greater_than_zero));// using filter method 1,10
+Q.7 Explain passed by value and passed by reference?
+ Ans: passed by value: In Pass by value, function is called by directly passing the value of the variable as an argument. 
+                       So any changes made inside the function does not affect the original value.
+   Ex:            let num1 = 70
+                  let num2 = num1
+                  console.log(num1) // 70
+                  console.log(num2) // 70
+                   num1 = 40
+                  console.log(num1) // 40
+                  console.log(num2) // 70
+  passed by refrence: pass by reference in JavaScript does not create a new space in the memory, instead, 
+                      we pass the reference/address of the actual parameter which means, the function can access the original value of the variable. 
+                      Thus, if we change the value of the variable inside the function then the original value also gets changed.
+  
+  Ex:              let obj1 = {website: "Scaler Academy"}
+                   let obj2 = obj1;
+                   console.log(obj1)     // {website: "Scaler Academy"}
+                   console.log(obj2)     // {website: "Scaler Academy"}
+                   obj1.website = "Scaler Topics"
+                   console.log(obj1)     // {website: "Scaler Topics"}
+                   console.log(obj2)     // {website: "Scaler Topics"}
+Q.8 Please explain Self Invoking Function and its code?
+ Ans: Self Invoking Function: JavaScript Self invoking functions are nameless self-executing functions and invoked immediately after defining it. These self-invoking 
+                              functions are man-made,these functions will execute automatically when followed by ( ). Without ( ), a function cannot be self-invoked.
+    Ex: 
+                 (function() {
+                     // code
+                  })();
